@@ -1,5 +1,5 @@
 # Create-a-CPI-Project
-This project creates a CPI with a basket tailored explicitly to college student consumer products and compares it to the general inflation CPI basket.  It uses data from the Bureau of Labor and Statistics (API).
+Create a CPI with a basket tailored explicitly to college student consumer products and compare it to the general inflation CPI basket, using Bureau of Labor and Statistics (API) data
 
 #### Basket Goods
 + `Transportation`
