@@ -69,19 +69,9 @@ def myinflation(lag):
     change = (new / old - 1) * 100
     return change
 ```
-## Results Visualization
-
-A comparative graph is created to visualize the inflation rates of the custom CPI against the general CPI over various lag periods. The graph includes labeled axes and a legend for clarity.
-
-## Discussion of Findings
-
-The findings indicate that the custom CPI, while less robust than the general CPI, effectively captures the inflation trends relevant to college students. Notably, essential products such as gas, recreation, and rent demonstrate higher sensitivity to inflation, highlighting the financial pressures faced by students.
 
 ## Usage
 
 1. Set up your API key in `APIkeys.py`.
 2. Run the main script to collect data, calculate CPI, and visualize results.
 
-## Conclusion
-
-This project provides valuable insights into the cost of living for college students, demonstrating the necessity for tailored economic indicators to address specific demographic needs.
