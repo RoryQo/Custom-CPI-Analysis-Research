@@ -48,7 +48,22 @@ The custom CPI is calculated by applying the specified weights to the collected 
 ## Inflation Calculation
 
 Inflation rates are computed using specific functions that calculate the percent change over specified lag periods.
-
+```python
+def myinflation(lag):
+    """Compute the percent change in the level of myCPI for the 
+    12 months starting '12+lag' months ago and ending 'lag' months ago.
+    
+    Args:
+        lag (int): The number of months lag.
+    
+    Returns:
+        float: Percent change in CPI.
+    """
+    new = mycpi[lag]
+    old = mycpi[12 + lag]
+    change = (new / old - 1) * 100
+    return change
+```
 ## Results Visualization
 
 A comparative graph is created to visualize the inflation rates of the custom CPI against the general CPI over various lag periods. The graph includes labeled axes and a legend for clarity.
