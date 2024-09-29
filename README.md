@@ -3,7 +3,7 @@
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Discussion, Conclusion, and Results Visualization](#discussion-conclusion-and-results-visualization)
+2. [Discussion, Conclusion, and Results](#discussion-conclusion-and-results)
 3. [Data Sources](#data-sources)
 4. [Key Components](#key-components)
 5. [CPI Calculation](#cpi-calculation)
@@ -13,7 +13,7 @@
 
 This project analyzes the Consumer Price Index (CPI) for college students by evaluating essential products and services they typically consume. It computes a custom CPI based on selected items and their respective weights across different regions in the U.S.
 
-## Discussion, Conclusion, and Results Visualization
+## Discussion, Conclusion, and Results
 
 While this CPI isn't as resistant to fluctuations (less robust) as the much larger general CPI, it still captures the overall trend of inflation impacting college students. The results indicate that essential consumer products integral to students' lives, such as gas, recreation, and rent, are more sensitive to inflation changes. This can contribute to the volatility of their CPI compared to the general CPI.
 
