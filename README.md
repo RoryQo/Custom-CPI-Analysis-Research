@@ -1,20 +1,25 @@
-# CPI Project
-
-## Overview
-
-The CPI Project focuses on constructing a Consumer Price Index (CPI) specifically tailored to the needs and expenditures of college students across three major regions in the United States: Northeast, Midwest, and South. The project explores various consumer products and services relevant to student life, analyzes price trends, and computes the inflation rates using both a custom CPI and the general CPI for comparison.
+# <p align="center">CPI Project</p>
 
 ## Table of Contents
 
-1. [Consumer Products and Weights](#consumer-products-and-weights)
-2. [Data Sources](#data-sources)
-3. [Data Collection](#data-collection)
-4. [Custom CPI Calculation](#custom-cpi-calculation)
-5. [Inflation Calculation](#inflation-calculation)
-6. [Results Visualization](#results-visualization)
-7. [Discussion of Findings](#discussion-of-findings)
-8. [Usage](#usage)
-9. [Conclusion](#conclusion)
+1. [Overview](#overview)
+2. [Discussion and Conclusion](#discussion-and-conclusion)
+3. [Data Sources](#data-sources)
+4. [Key Components](#key-components)
+5. [CPI Calculation](#cpi-calculation)
+6. [API Data Retrieval](#api-data-retrieval)
+7. [Results Visualization](#results-visualization)
+
+## Overview
+
+This project analyzes the Consumer Price Index (CPI) for college students by evaluating essential products and services they typically consume. It computes a custom CPI based on selected items and their respective weights across different regions in the U.S.
+
+## Discussion and Conclusion
+
+While this CPI isn't as resistant to fluctuations (less robust) as the much larger general CPI, it still captures the overall trend of inflation impacting college students. The results indicate that essential consumer products integral to students' lives, such as gas, recreation, and rent, are more sensitive to inflation changes. This can contribute to the volatility of their CPI compared to the general CPI.
+
+The analysis highlights the importance of considering specific demographics when assessing inflation impacts, as the experiences of college students may significantly differ from the broader population.
+
 
 ## Consumer Products and Weights
 
