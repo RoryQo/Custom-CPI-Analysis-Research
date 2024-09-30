@@ -1,4 +1,4 @@
-# <p align="center">CPI Project</p>
+# <p align="center">CPI Mini Capstone</p>
 
 ## Table of Contents
 
