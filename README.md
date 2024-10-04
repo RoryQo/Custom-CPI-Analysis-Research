@@ -60,6 +60,21 @@ myData["myCPI"] = 0.034 * myData["CUUR0300SAT"] + ... + 0.068 * myData["CUUR0200
 ```
 ## Inflation Analysis
 12-month inflation rates are computed for both the custom CPI and the general CPI to assess trends and volatility over time.
+```
+def myinflation(lag): # Compute the percent change in the level of myCPI for
+the 12 months starting '12+lag' months ago and ending 'lag' months ago.
+
+Args:
+lag (int): The number of months lag.
+
+Returns:
+float: Percent change in CPI.
+#
+new = mycpi[lag]
+old = mycpi[12 + lag]
+change = (new / old - 1) * 100
+return change
+```
 
 ## Visualization
 A comparative line graph illustrates the inflation trends for the custom CPI and the general CPI over various lag periods.
