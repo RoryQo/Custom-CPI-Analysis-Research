@@ -1,7 +1,7 @@
 # CPI Project README
  
 ## Table of Contents
-1. [Project Overview](#project-overview)
+1. [Project Overview](#project-overview) 
 2. [Data Sources](#data-sources)
 3. [Methodology](#methodology)
    - [Consumer Product Selection](#consumer-product-selection)
