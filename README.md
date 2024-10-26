@@ -1,18 +1,37 @@
-# CPI Project README
+# Custom-CPI-Analysis-Research
  
-## Table of Contents
-1. [Project Overview](#project-overview) 
-2. [Data Sources](#data-sources)
-3. [Methodology](#methodology)
-   - [Consumer Product Selection](#consumer-product-selection)
-   - [Weight Assignment](#weight-assignment)
-   - [API Data Retrieval](#api-data-retrieval)
-   - [CPI Calculation](#cpi-calculation)
-4. [Inflation Analysis](#inflation-analysis)
-5. [Visualization](#visualization)
-6. [Conclusion](#conclusion)
-7. [How to Run the Project](#how-to-run-the-project)
-8. [License](#license)
+<table align="center">
+  <tr>
+    <td colspan="2" align="center"><strong>Table of Contents</strong></td>
+  </tr>
+  <tr>
+    <td>1. <a href="#project-overview">Project Overview</a></td>
+    <td>5. <a href="#visualization">Visualization</a></td>
+  </tr>
+  <tr>
+    <td>2. <a href="#data-sources">Data Sources</a></td>
+    <td>6. <a href="#conclusion">Conclusion</a></td>
+  </tr>
+  <tr>
+    <td>3. <a href="#inflation-analysis">Inflation Analysis</a></td>
+    <td>7. <a href="#how-to-run-the-project">How to Run the Project</a></td>
+  </tr>
+  <tr>
+    <td colspan="2"><a href="#license">8. License</a></td>
+  </tr>
+  <tr>
+    <td colspan="2">9. <a href="#methodology">Methodology</a>
+      <ul>
+        <li><a href="#consumer-product-selection">Consumer Product Selection</a></li>
+        <li><a href="#weight-assignment">Weight Assignment</a></li>
+        <li><a href="#api-data-retrieval">API Data Retrieval</a></li>
+        <li><a href="#cpi-calculation">CPI Calculation</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+
 
 ## Project Overview
 This project analyzes the Consumer Price Index (CPI) as it relates to college students by creating a tailored CPI based on common products and services used by this demographic. The analysis includes transportation, food staples, utilities, and more, providing insights into the inflationary pressures faced by students across different U.S. regions.
