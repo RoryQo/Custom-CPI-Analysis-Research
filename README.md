@@ -41,27 +41,6 @@ The data for this project is sourced from the U.S. Bureau of Labor Statistics (B
 
 ## Methodology
 
-### Consumer Product Selection
-The following products and services have been identified as relevant for college students:
-- Transportation
-- Cereal
-- Gas
-- Recreation
-- Alcoholic Beverages
-- Rent
-- Electricity
-- Apparel
-
-### Weight Assignment
-Weights for each product/service were assigned based on their importance in the typical college student’s budget, resulting in the following distribution:
-- Transportation: 0.034
-- Cereal: 0.068
-- Gas: 0.034
-- Recreation: 0.034
-- Alcoholic Beverages: 0.034
-- Rent: 0.068
-- Electricity: 0.034
-- Apparel: 0.034
 
 ### API Data Retrieval
 The project makes an API call to download CPI data for the selected products over a five-year period (January 2017 to January 2022), including the general CPI for comparison.
