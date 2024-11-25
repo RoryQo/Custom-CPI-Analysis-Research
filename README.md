@@ -1,5 +1,5 @@
 # Custom-CPI-Analysis-Research
- 
+
 <table align="center">
   <tr>
     <td colspan="2" align="center"><strong>Table of Contents</strong></td>
@@ -41,6 +41,26 @@ The data for this project is sourced from the U.S. Bureau of Labor Statistics (B
 
 ## Methodology
 
+### Consumer Product Selection
+The following products and services have been identified as relevant for college students:
+- Transportation
+- Cereal
+- Gas
+- Recreation
+- Alcoholic Beverages
+- Rent
+- Electricity
+- Apparel
+### Weight Assignment
+Weights for each product/service were assigned based on their importance in the typical college student’s budget, resulting in the following distribution:
+- Transportation: 0.034
+- Cereal: 0.068
+- Gas: 0.034
+- Recreation: 0.034
+- Alcoholic Beverages: 0.034
+- Rent: 0.068
+- Electricity: 0.034
+- Apparel: 0.034
 
 ### API Data Retrieval
 The project makes an API call to download CPI data for the selected products over a five-year period (January 2017 to January 2022), including the general CPI for comparison.
@@ -54,17 +74,14 @@ import json
 The custom CPI is computed using the weights assigned to each product and the corresponding CPI data retrieved from the API.
 ```
 myData["myCPI"] = 0.034 * myData["CUUR0300SAT"] + ... + 0.068 * myData["CUUR0200SAA"]
-
 ```
 ## Inflation Analysis
 12-month inflation rates are computed for both the custom CPI and the general CPI to assess trends and volatility over time.
 ```
 def myinflation(lag): # Compute the percent change in the level of myCPI for
 the 12 months starting '12+lag' months ago and ending 'lag' months ago.
-
 Args:
 lag (int): The number of months lag.
-
 Returns:
 float: Percent change in CPI.
 #
