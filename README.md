@@ -94,6 +94,8 @@ return change
 ## Visualization
 A comparative line graph illustrates the inflation trends for the custom CPI and the general CPI over various lag periods.
 
+<img src="https://github.com/RoryQo/Custom-CPI-Analysis-Research/raw/main/Fig1.jpg" width="450px"/>
+
 ## Conclusion
 While this CPI isn't as resistant to fluctuations (less robust) as the much larger general CPI, it still captures the overall trend of inflation impacting college students. The results indicate that essential consumer products integral to students' lives, such as gas, recreation, and rent, are more sensitive to inflation changes. This can contribute to the volatility of their CPI compared to the general CPI. The analysis highlights the importance of considering specific demographics when assessing inflation impacts, as the experiences of college students may significantly differ from the broader population. A comparative graph is created to visualize the inflation rates of the custom CPI against the general CPI over various lag periods.
 
