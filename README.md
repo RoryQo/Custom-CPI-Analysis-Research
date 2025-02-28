@@ -1,4 +1,4 @@
-# Custom-CPI-Analysis-Research
+<h1 align="center">Custom CPI Analysis Research</h1>
 
 <div>
   <table align="center">
