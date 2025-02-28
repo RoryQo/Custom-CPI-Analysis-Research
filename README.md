@@ -1,108 +1,148 @@
 # Custom-CPI-Analysis-Research
 
-<table align="center">
-  <tr>
-    <td colspan="2" align="center"><strong>Table of Contents</strong></td>
-  </tr>
-  <tr>
-    <td>1. <a href="#project-overview">Project Overview</a></td>
-    <td>5. <a href="#visualization">Visualization</a></td>
-  </tr>
-  <tr>
-    <td>2. <a href="#data-sources">Data Sources</a></td>
-    <td>6. <a href="#conclusion">Conclusion</a></td>
-  </tr>
-  <tr>
-    <td>3. <a href="#inflation-analysis">Inflation Analysis</a></td>
-    <td>7. <a href="#how-to-run-the-project">How to Run the Project</a></td>
-  </tr>
-  <tr>
-    <td colspan="2"><a href="#license">8. License</a></td>
-  </tr>
-  <tr>
-    <td colspan="2">9. <a href="#methodology">Methodology</a>
-      <ul>
-        <li><a href="#consumer-product-selection">Consumer Product Selection</a></li>
-        <li><a href="#weight-assignment">Weight Assignment</a></li>
-        <li><a href="#api-data-retrieval">API Data Retrieval</a></li>
-        <li><a href="#cpi-calculation">CPI Calculation</a></li>
-      </ul>
-    </td>
-  </tr>
-</table>
-
-
+<div>
+  <table align="center">
+    <tr>
+      <td colspan="2" align="center" style="background-color: white; color: black;"><strong>Table of Contents</strong></td>
+    </tr>
+    <tr>
+      <td style="background-color: white; color: black; padding: 10px;">1. <a href="#project-overview" style="color: black;">Project Overview</a></td>
+      <td style="background-color: gray; color: black; padding: 10px;">6. <a href="#conclusion" style="color: black;">Conclusion</a></td>
+    </tr>
+    <tr>
+      <td style="background-color: gray; color: black; padding: 10px;">2. <a href="#data-sources" style="color: black;">Data Sources</a></td>
+      <td style="background-color: white; color: black; padding: 10px;">7. <a href="#how-to-run-the-project" style="color: black;">How to Run the Project</a></td>
+    </tr>
+    <tr>
+      <td style="background-color: white; color: black; padding: 10px;">3. <a href="#inflation-analysis" style="color: black;">Inflation Analysis</a></td>
+      <td style="background-color: gray; color: black; padding: 10px;">8. <a href="#license" style="color: black;">License</a></td>
+    </tr>
+    <tr>
+      <td style="background-color: gray; color: black; padding: 10px;">
+        4. <a href="#visualization" style="color: black;">Visualization</a><br>
+      </td>
+      <td style="background-color: white; color: black; padding: 10px;">
+        5. <a href="#methodology" style="color: black;">Methodology</a><br>
+        &nbsp;&nbsp;&nbsp;- <a href="#consumer-product-selection" style="color: black;">Consumer Product Selection</a><br>
+        &nbsp;&nbsp;&nbsp;- <a href="#weight-assignment" style="color: black;">Weight Assignment</a><br>
+        &nbsp;&nbsp;&nbsp;- <a href="#api-data-retrieval" style="color: black;">API Data Retrieval</a><br>
+        &nbsp;&nbsp;&nbsp;- <a href="#cpi-calculation" style="color: black;">CPI Calculation</a>
+      </td>
+    </tr>
+  </table>
+</div>
 
 ## Project Overview
-This project analyzes the Consumer Price Index (CPI) as it relates to college students by creating a tailored CPI based on common products and services used by this demographic. The analysis includes transportation, food staples, utilities, and more, providing insights into the inflationary pressures faced by students across different U.S. regions.
+This project provides an analysis of the Consumer Price Index (CPI) as it relates to college students by creating a tailored CPI based on essential products and services commonly used by this demographic. The customized CPI accounts for various regions in the U.S. and highlights the inflationary pressures that affect students. Products and services selected for this CPI include transportation, food staples, utilities, recreation, alcohol, apparel, and rent.
+
+The goal of this project is to evaluate how the CPI for college students varies compared to the general CPI and to identify which items or services contribute the most to price changes. The CPI is calculated for three regions: Northeast, Midwest, and South, providing a comprehensive look at regional inflation.
 
 ## Data Sources
-The data for this project is sourced from the U.S. Bureau of Labor Statistics (BLS) API, which provides historical CPI data for various consumer products and services.
+The data for this analysis is sourced from the U.S. Bureau of Labor Statistics (BLS) API, which offers historical data on price changes for various consumer goods and services. We retrieve CPI data for the following regions and product categories from January 2017 to January 2022:
+
+- Northeast
+- Midwest
+- South
+
+Each series corresponds to a specific product or service, with each having a weighted value in the overall CPI calculation.
+
+## Inflation Analysis
+In this section, we analyze the inflation rate using the custom CPI for college students, comparing it with the general CPI. The custom CPI is calculated by assigning weights to key products and services. By comparing year-over-year inflation rates (12-month inflation), we assess how fluctuations in prices for student-essential items differ from the general consumer market.
+
+```
+def myinflation(lag):
+    """Compute the percent change in CPI over a 12-month period."""
+    new = mycpi[lag]
+    old = mycpi[12 + lag]
+    change = (new / old - 1) * 100
+    return change
+```
 
 ## Methodology
 
-### Consumer Product Selection
-The following products and services have been identified as relevant for college students:
-- Transportation
-- Cereal
-- Gas
-- Recreation
-- Alcoholic Beverages
-- Rent
-- Electricity
-- Apparel
-### Weight Assignment
-Weights for each product/service were assigned based on their importance in the typical college student’s budget, resulting in the following distribution:
-- Transportation: 0.034
-- Cereal: 0.068
-- Gas: 0.034
-- Recreation: 0.034
-- Alcoholic Beverages: 0.034
-- Rent: 0.068
-- Electricity: 0.034
-- Apparel: 0.034
-
 ### API Data Retrieval
-The project makes an API call to download CPI data for the selected products over a five-year period (January 2017 to January 2022), including the general CPI for comparison.
+We used the BLS API to retrieve CPI data for the selected regions and products. The API allows us to pull historical data for multiple time periods, ensuring we have data spanning from January 2017 to January 2022. The function `multiSeriesV4` is responsible for querying the BLS API and compiling the results into a dataframe for further analysis.
+
 ```
 import requests
 import json
 # API call logic...
 ```
-
 ### CPI Calculation
-The custom CPI is computed using the weights assigned to each product and the corresponding CPI data retrieved from the API.
+The custom CPI for college students was calculated by combining the weighted price changes of each product in the basket. We used the following formula for each month:
+
+```math
+CPI = \sum \left( \text{{weight of product}} \times \text{{price change of product}} \right)
 ```
-myData["myCPI"] = 0.034 * myData["CUUR0300SAT"] + ... + 0.068 * myData["CUUR0200SAA"]
+
+This was done for each region (Northeast, Midwest, and South) as well as for the overall CPI (general market).
+
 ```
-## Inflation Analysis
-12-month inflation rates are computed for both the custom CPI and the general CPI to assess trends and volatility over time.
+myData["myCPI"] = (0.034 * myData["CUUR0300SAT"] + 0.068 * myData["CUUR0300SETB01"]
+                     + 0.034 * myData["CUUR0300SAF111"] + 0.034 * myData["CUUR0300SAR"]
+                     + 0.034 * myData["CUUR0300SAF116"] + 0.034 * myData["CUUR0300SAS2RS"]
+                     + 0.034 * myData["CUUR0300SEHF01"] + 0.068 * myData["CUUR0300SAA"])
 ```
-def myinflation(lag): # Compute the percent change in the level of myCPI for
-the 12 months starting '12+lag' months ago and ending 'lag' months ago.
-Args:
-lag (int): The number of months lag.
-Returns:
-float: Percent change in CPI.
-#
-new = mycpi[lag]
-old = mycpi[12 + lag]
-change = (new / old - 1) * 100
-return change
-```
+
+
+### Consumer Product Selection
+The commodities selected for this project were chosen based on a convenience survey conducted among senior economics majors at the University of Pittsburgh. The survey asked participants to provide information on their most common spending categories and products. This data was used to create a representative list of items and services that college students typically purchase and use. These include:
+
+- **Transportation**: Including commuting and busing.
+- **Cereal**: A common breakfast staple for many students.
+- **Gas**: Necessary for transportation to and from school and work.
+- **Recreation**: Vital for social life and leisure.
+- **Alcoholic Beverages**: A common expenditure on college campuses.
+- **Rent**: Most students rent apartments or dorms.
+- **Electricity**: Essential for powering devices for school.
+- **Apparel**: Necessary for daily wear.
+
+These products were chosen to represent key spending areas for students that can be impacted by inflation.
+
+### Weight Assignment
+Each product and service is assigned a weight based on the number of appearances in the survey. The weights for each category are:
+
+- **Transportation**: 0.034
+- **Cereal**: 0.034
+- **Gas**: 0.068
+- **Recreation**: 0.034
+- **Alcoholic Beverages**: 0.034
+- **Rent**: 0.034
+- **Electricity**: 0.034
+- **Apparel**: 0.068
+
+These weights were chosen to reflect the relative significance of each item in the CPI calculation for college students.
+
 
 ## Visualization
-A comparative line graph illustrates the inflation trends for the custom CPI and the general CPI over various lag periods.
+The inflation analysis is visualized by plotting the 12-month inflation for both the general CPI and the custom CPI across different time periods. This helps identify trends, volatility, and differences in inflationary pressures for college students compared to the broader population. The plot shows how specific products like gas, rent, and recreation influence the overall CPI for students.
 
-<img src="https://github.com/RoryQo/Custom-CPI-Analysis-Research/raw/main/Fig1.jpg" width="450px"/>
+<p align="center">
+  <img src="https://github.com/RoryQo/Custom-CPI-Analysis-Research/raw/main/Fig1.jpg" width="450px"/>
+</p>
 
 ## Conclusion
-While this CPI isn't as resistant to fluctuations (less robust) as the much larger general CPI, it still captures the overall trend of inflation impacting college students. The results indicate that essential consumer products integral to students' lives, such as gas, recreation, and rent, are more sensitive to inflation changes. This can contribute to the volatility of their CPI compared to the general CPI. The analysis highlights the importance of considering specific demographics when assessing inflation impacts, as the experiences of college students may significantly differ from the broader population. A comparative graph is created to visualize the inflation rates of the custom CPI against the general CPI over various lag periods.
+While the custom CPI based on student products does not have the robustness of the general CPI (due to its smaller, less diverse product base), it does capture the overall inflationary trend. The CPI for college students is often more volatile, particularly due to the high variability in rent, transportation costs, and recreational expenses, which are critical to students' everyday lives.
 
 ## How to Run the Project
-1. Ensure you have Python and the necessary libraries (`requests`, `pandas`, `matplotlib`) installed.
-2. Set up your BLS API key in a secure environment variable.
-3. Run the main script to retrieve data, perform calculations, and generate visualizations.
+To run the project on your own machine, follow these steps:
+
+1. Clone the repository or download the source files.
+```bash
+   git clone https://github.com/your-username/Custom-CPI-Analysis-Research.git
+```
+2. Ensure you have Python 3.x installed and the following libraries:
+   - requests
+   - json
+   - pandas
+   - numpy
+   - matplotlib
+3. Obtain your BLS API key and save it as an environment variable (`BLS_API_key`).
+```
+import os
+os.environ["BLS_API_key"] = "your_api_key_here"
+```
+4. Run the main script to download the data and perform the CPI calculations. The script will automatically call the BLS API and process the data for analysis.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
